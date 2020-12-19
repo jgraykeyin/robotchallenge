@@ -1,11 +1,17 @@
+# Python program for the Spring Week Robot Challenge
+# Robot Team 3
+# This program will react with 4 rooms on a set course, it will take an action
+# in each room depending on the room variable that's set. The robot will either
+# ignore a dangerous room, enter the room to shoot at a marker or enter the room
+# and begin an escort mission back to the start.
+
 looking_for_target = False
 looking_for_people = False
 
-room_a = 1
-room_b = 3
-room_c = 2
-room_d = 1
-
+room_a = 2
+room_b = 2
+room_c = 1
+room_d = 3
 
 # Marker 1: Put out fire
 # Marker 2: Ignore Room
@@ -201,10 +207,11 @@ def start():
 
     # Turn left at the end of the hallway
     chassis_ctrl.rotate_with_degree(rm_define.anticlockwise, 90)
+    time.sleep(5)
 
     # Keep moving toward Room B
     chassis_ctrl.move_with_distance(0, 5.0)
-    chassis_ctrl.move_with_distance(0, 2.3)
+    chassis_ctrl.move_with_distance(0, 2.0)
 
     print("Room B Reached")
     # Room B: React based on the marker
@@ -289,7 +296,7 @@ def start():
 
     # Continue on to Room C
     chassis_ctrl.move_with_distance(0, 5.0)
-    chassis_ctrl.move_with_distance(0, 3.8)
+    chassis_ctrl.move_with_distance(0, 3.7)
 
     if room_c == 1:
         chassis_ctrl.rotate_with_degree(rm_define.anticlockwise, 90)
@@ -367,7 +374,7 @@ def start():
 
     # Continue to Room D
     chassis_ctrl.move_with_distance(0, 5.0)
-    chassis_ctrl.move_with_distance(0, 5.0)
+    chassis_ctrl.move_with_distance(0, 5.2)
 
     if room_d == 1:
         chassis_ctrl.rotate_with_degree(rm_define.anticlockwise, 90)
