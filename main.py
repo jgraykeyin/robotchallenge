@@ -19,6 +19,11 @@ room_d = 3
 
 # Use this function to do specific code when it detects a human
 def vision_recognized_people(msg):
+    '''
+    Description: Function that triggers when a human is detected
+    :param msg:
+    :return:
+    '''
     global looking_for_people
     if looking_for_people:
         print("PERSON FOUND!")
@@ -26,6 +31,9 @@ def vision_recognized_people(msg):
 
 
 def vision_recognized_marker_number_one(msg):
+    '''
+    Description: Function triggers when marker number one is found
+    '''
     global looking_for_target
     if looking_for_target:
         print("Target One Found")
@@ -41,6 +49,9 @@ def vision_recognized_marker_number_one(msg):
 
 
 def vision_recognized_marker_number_two(msg):
+    '''
+    Description: Function triggers when marker number two is found
+    '''
     global looking_for_target
     if looking_for_target:
         print("Target Two Found")
@@ -50,6 +61,9 @@ def vision_recognized_marker_number_two(msg):
 
 
 def vision_recognized_marker_number_three(msg):
+    '''
+    Description: Function triggers when marker number three is found
+    '''
     global looking_for_target
     if looking_for_target:
         print("Target Three Found")
@@ -59,6 +73,10 @@ def vision_recognized_marker_number_three(msg):
 
 
 def init_robot_settings():
+    '''
+    Description: Set default values on the robot before it begins moving.
+    :return:
+    '''
     print("Robot Starting")
     robot_ctrl.set_mode(rm_define.robot_mode_free)
     gimbal_ctrl.recenter()
@@ -71,6 +89,14 @@ def init_robot_settings():
 
 
 def fire_mode(direction_in, direction_out, meters):
+    '''
+    Description: Function to initiate the firing sequence. Direction-in, out and meters were
+    used at first but had to be removed from function after testing.
+    :param direction_in: direction into the room
+    :param direction_out: direction out of the room
+    :param meters: meters into the room
+    :return:
+    '''
     global looking_for_target
 
     # Rotate and move into room
@@ -104,6 +130,10 @@ def fire_mode(direction_in, direction_out, meters):
 
 
 def search_mode():
+    '''
+    Description: Initiates the human-detection and begins the rescue-mission back to starting position
+    :return:
+    '''
     global looking_for_people
     gimbal_ctrl.recenter()
 
@@ -122,6 +152,10 @@ def search_mode():
 
 
 def start():
+    '''
+    Description: Main function that includes the robot's path through the course
+    :return:
+    '''
     global looking_for_target
     global looking_for_people
     global room_a
